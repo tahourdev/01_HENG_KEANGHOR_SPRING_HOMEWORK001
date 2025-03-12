@@ -10,12 +10,12 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Ticket {
-    private Long ticketId = 0L;
+    private Long ticketId;
     private String passengerName;
     private LocalDate travelDate;
     private String sourceStation;
     private String destinationStation;
-    private Double price = 0.0;
+    private Double price;
     private boolean paymentStatus;
     private TicketStatus ticketStatus;
     private String seatNumber;
