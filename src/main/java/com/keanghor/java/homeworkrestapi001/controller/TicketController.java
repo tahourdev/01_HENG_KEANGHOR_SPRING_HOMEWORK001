@@ -51,9 +51,10 @@ public class TicketController {
     public ResponseEntity<APIResponse<PaginatedResponse>> getTicketsPaginated(
             @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "10") int size) {
-        int start = page * size;
+        int adjustedPage = page - 1;
+        int start = adjustedPage * size;
         int end = Math.min(start + size, TICKETS.size());
-        List<TicketResponse> items = start < TICKETS.size()
+        List<TicketResponse> items = start < TICKETS.size() && start >= 0
                 ? TICKETS.subList(start, end).stream().map(this::toTicketResponse).collect(Collectors.toList())
                 : Collections.emptyList();
 
