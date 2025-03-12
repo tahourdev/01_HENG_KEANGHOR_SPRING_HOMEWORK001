@@ -49,7 +49,7 @@ public class TicketController {
     @Operation(summary = "Get all tickets")
     @GetMapping
     public ResponseEntity<APIResponse<PaginatedResponse>> getTicketsPaginated(
-            @RequestParam(defaultValue = "0") int page,
+            @RequestParam(defaultValue = "1") int page,
             @RequestParam(defaultValue = "10") int size) {
         int start = page * size;
         int end = Math.min(start + size, TICKETS.size());
